@@ -26,7 +26,6 @@ const SigninPage = () => {
     });
     let y = await x.json();
     if (y.status) {
-      console.log(y.data);
       window.localStorage.todoaccount = JSON.stringify(y.data);
       window.localStorage.loggedin = true;
       window.location.href = "/MainPage";

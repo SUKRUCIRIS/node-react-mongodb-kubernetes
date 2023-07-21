@@ -14,7 +14,7 @@ const SignupPage = () => {
       previousState[e.target.name] = e.target.value;
       return previousState;
     });
-    if (e.target.name === "repeat") {
+    if (e.target.name === "repeat" || e.target.name === "password") {
       if (formvalue.repeat !== formvalue.password) {
         setSame(() => {
           return false;
@@ -45,7 +45,6 @@ const SignupPage = () => {
       }),
     });
     let y = await x.json();
-    console.log(y);
     if (y.status) {
       window.location.href = "/SigninPage";
     } else {
@@ -71,6 +70,7 @@ const SignupPage = () => {
                         placeholder="Enter Username"
                         name="username"
                         onChange={handleInput}
+                        required
                       />
                     </Form.Group>
 
@@ -83,6 +83,7 @@ const SignupPage = () => {
                         placeholder="Enter email"
                         name="email"
                         onChange={handleInput}
+                        required
                       />
                     </Form.Group>
 
@@ -93,6 +94,7 @@ const SignupPage = () => {
                         placeholder="Password"
                         name="password"
                         onChange={handleInput}
+                        required
                       />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword2">
@@ -103,8 +105,9 @@ const SignupPage = () => {
                         name="repeat"
                         onChange={handleInput}
                         style={{
-                          backgroundColor: ` ${isSame ? "White" : "Red"}`,
+                          backgroundColor: ` ${isSame ? "#212529" : "Red"}`,
                         }}
+                        required
                       />
                     </Form.Group>
                     <Form.Group

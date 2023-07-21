@@ -15,10 +15,7 @@ const user = mongoose.model("User", userSchema);
 
 user
   .findOne({
-    username: "admin",
     email: "sukruciris2000@gmail.com",
-    password: "admin",
-    todos: ["admin"],
   })
   .then((User) => {
     if (!User) {
@@ -111,7 +108,8 @@ app.post("/updatetodo", (req, res) => {
         password: password,
         email: email,
       },
-      { todos: todos }
+      { todos: todos },
+      { new: true }
     )
     .then((result) => {
       console.log("User todo updated: " + result.toString());
