@@ -4,11 +4,15 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 const NavBar = () => {
+  const signout = () => {
+    window.localStorage.clear();
+    window.location.href = "/SigninPage";
+  };
   var acc_links;
   if (JSON.parse(localStorage.getItem("loggedin")) === true) {
     acc_links = (
       <NavDropdown title="Account" id="basic-nav-dropdown">
-        <NavDropdown.Item href="/MainPage">Sign Out</NavDropdown.Item>
+        <NavDropdown.Item onClick={signout}>Sign Out</NavDropdown.Item>
         <NavDropdown.Item href="/UpdateAccPage">
           Update Account Info
         </NavDropdown.Item>

@@ -48,7 +48,6 @@ const SignupPage = () => {
     console.log(y);
     if (y.status) {
       window.location.href = "/SigninPage";
-      window.localStorage.todoaccount = y.data;
     } else {
       window.alert("Your account creation is failed: " + y.error);
     }
@@ -114,7 +113,7 @@ const SignupPage = () => {
                     ></Form.Group>
                     <div className="d-grid">
                       <Button variant="primary" type="submit">
-                        Create Account
+                        Sign Up
                       </Button>
                     </div>
                   </Form>

@@ -135,7 +135,8 @@ app.post("/updateacc", (req, res) => {
       {
         username: username,
         password: password,
-      }
+      },
+      { new: true }
     )
     .then((result) => {
       console.log("User account updated: " + result.toString());
