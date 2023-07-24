@@ -88,6 +88,28 @@ const TodoPage = () => {
       window.alert("Your todo update is failed: " + y.error);
     }
   };
+  let addbutton;
+  if (JSON.parse(localStorage.getItem("loggedin")) === true) {
+    addbutton = (
+      <Form>
+        <Form.Group className="mb-3" controlId="Name">
+          <Form.Label className="text-center">New ToDo</Form.Label>
+          <Form.Control type="text" name="text" onChange={newtodochange} />
+        </Form.Group>
+        <Button
+          variant="primary"
+          style={{
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+          onClick={addtodo}
+        >
+          Add ToDo
+        </Button>
+      </Form>
+    );
+  }
   return (
     <Fragment>
       {warning}
@@ -102,33 +124,7 @@ const TodoPage = () => {
         }}
       >
         <ListGroup variant="flush">{todos}</ListGroup>
-        {() => {
-          if (JSON.parse(localStorage.getItem("loggedin")) === true) {
-            return (
-              <Form>
-                <Form.Group className="mb-3" controlId="Name">
-                  <Form.Label className="text-center">New ToDo</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="text"
-                    onChange={newtodochange}
-                  />
-                </Form.Group>
-                <Button
-                  variant="primary"
-                  style={{
-                    display: "block",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                  }}
-                  onClick={addtodo}
-                >
-                  Add ToDo
-                </Button>
-              </Form>
-            );
-          }
-        }}
+        {addbutton}
       </Card>
     </Fragment>
   );
