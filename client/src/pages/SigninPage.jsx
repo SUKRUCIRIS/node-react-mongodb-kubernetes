@@ -30,7 +30,7 @@ const SigninPage = () => {
       window.localStorage.loggedin = true;
       window.location.href = "/MainPage";
     } else {
-      window.alert("Your sign in is failed: " + y.error);
+      window.alert("Your sign in has failed: " + y.error);
     }
   };
   return (
