@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
-mongoose.connect("mongodb://mongo:27017/tododb");
+mongoose.connect("mongodb://service-np-mongo:27017/tododb");
 
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true },

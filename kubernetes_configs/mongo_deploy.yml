@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: deploy-mongo
+  labels:
+    name: testing-kube-deploy
+    app: testing-kube-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: testing-kube-pod
+      app: testing-kube-app
+  template:
+    metadata:
+      name: testing-kube-pod
+      labels:
+        name: testing-kube-pod
+        app: testing-kube-app
+    spec:
+      containers:
+        - name: testing-kube-container
+          image: "807770787308.dkr.ecr.eu-west-1.amazonaws.com/todo_mongo:latest"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 27017

@@ -25,8 +25,8 @@ services:
       - /usr/src/app/node_modules
     depends_on:
       - mongo
-    expose:
-      - 8080
+    ports:
+      - 8080:8080
     networks:
       - express-mongo
       - react-express
@@ -38,8 +38,8 @@ services:
     build: mongo
     volumes:
       - ./data:/data/db
-    expose:
-      - 27017
+    ports:
+      - 27017:27017
     networks:
       - express-mongo
     image: 807770787308.dkr.ecr.eu-west-1.amazonaws.com/todo_mongo:latest
