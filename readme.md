@@ -1,1 +1,5 @@
-run with 'docker compose -f docker-compose.yaml up -d'
+node express backend
+react frontend
+mongo database
+dockerizing
+deploying to Amazon EKS
